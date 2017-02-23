@@ -1,0 +1,181 @@
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.datepicker {
+    position: relative;
+    display: inline-block;
+}
+input.datepicker-input.with-reset-button {
+    padding-right: 25px;
+}
+.datepicker > span.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    outline: none;
+    z-index: 2;
+    display: block;
+    width: 20px;
+    height: 100%;
+    text-align: center;
+    cursor: default;
+}
+.datepicker > button.close:focus {
+    opacity: .2;
+}
+.datepicker-popup {
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    margin-top: 2px;
+    z-index: 1000;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+.datepicker-inner {
+    width: 218px;
+}
+.datepicker-body {
+    padding: 10px 10px;
+}
+.datepicker-ctrl p,
+.datepicker-ctrl span,
+.datepicker-body span {
+    display: inline-block;
+    width: 28px;
+    line-height: 28px;
+    height: 28px;
+}
+.datepicker-ctrl p {
+    width: 65%;
+    margin: 0;
+}
+.datepicker-ctrl span {
+    position: absolute;
+}
+.datepicker-body span {
+    text-align: center;
+}
+.datepicker-monthRange span {
+    width: 48px;
+    height: 50px;
+    line-height: 45px;
+}
+.datepicker-item-disable {
+    background-color: white!important;
+    cursor: not-allowed!important;
+}
+.decadeRange span:first-child,
+.decadeRange span:last-child,
+.datepicker-item-disable,
+.datepicker-item-gray {
+    color: #999;
+}
+.datepicker-dateRange-item-active:hover,
+.datepicker-dateRange-item-active {
+    background: rgb(50, 118, 177)!important;
+    color: white!important;
+}
+.datepicker-monthRange {
+    margin-top: 10px
+}
+.datepicker-monthRange span,
+.datepicker-ctrl span,
+.datepicker-ctrl p,
+.datepicker-dateRange span {
+    cursor: pointer;
+}
+.datepicker-monthRange span:hover,
+.datepicker-ctrl p:hover,
+.datepicker-ctrl i:hover,
+.datepicker-dateRange span:hover,
+.datepicker-dateRange-item-hover {
+    background-color: #eeeeee;
+}
+.datepicker-weekRange span {
+    font-weight: bold;
+}
+.datepicker-label {
+    background-color: #f8f8f8;
+    font-weight: 700;
+    padding: 7px 0;
+    text-align: center;
+}
+.datepicker-ctrl {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.month-btn {
+    font-weight: bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.datepicker-preBtn {
+    left: 2px;
+}
+.datepicker-nextBtn {
+    right: 2px;
+}
+.datepicker-preBtn:hover,
+.datepicker-nextBtn:hover {
+    background-color: #eeeeee;
+}
+.datepicker-timeRange {
+    height: 164px;
+    width: 200px;
+}
+.datepicker-timeRange .d {
+    width: 97px;
+    overflow-y: auto;
+    height: 100%;
+}
+.datepicker-timeRange .d ul li {
+    cursor: pointer;
+}
+.datepicker-timeRange .d ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.datepicker-timeRange .d ul li:hover {
+    background-color: #eeeeee;
+}
+.datepicker-timeRange .d ul li input {
+    display: none;
+}
+.datepicker-timeRange .d ul li label {
+    width: 100%;
+    display: inline-block;
+}
+.datepicker-timeRange .d ul li input:checked+label {
+    background: rgb(50, 118, 177)!important;
+    color: white!important;
+}
+.datepicker-timeRange .d::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+.datepicker-timeRange .d::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+.datepicker-timeRange .d::-webkit-scrollbar-thumb {
+    background-color: lightblue;
+}
+.btn-footer {
+    margin: 5px 0px;
+}
+
+/*# sourceMappingURL=app.ef8fa30afc2d12dbdb47130c047e58ba.css.map*/
