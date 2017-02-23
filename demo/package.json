@@ -1,8 +1,8 @@
 {
   "name": "demo",
   "version": "1.0.0",
-  "description": "A Vue.js detatimepicker demo project",
-  "author": "pansiyan <pansiyan@t2cloud.net>",
+  "description": "A Vue.js2.0 detatimepicker demo",
+  "author": "pansiyan <pansyan2005@126.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
