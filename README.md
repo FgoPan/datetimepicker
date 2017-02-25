@@ -15,17 +15,19 @@ https://fgopan.github.io/datetimepicker/
 
 组件属性说明
 
-|property|type|default|required|description|
-|value|String|TRUE|数值|
-|format|String|mm/dd/yyyy|时间格式|
-|disabled-days-of-week|Array|单周禁选|
-|width|String|160px|组件宽度|
-|clear-button|Boolean|false|是否有清除按钮|
-|lang|String|navigator.language|语言，默认中文|
-|placeholder|String|提示|
-|btn-text|String|ok|按钮文本|
-|btn-class|String|按钮样式|
-|btn-style|Object|按钮样式 {'color':'red'}|
-				
-|methods|args|required|description|
-|on-data-change|val|TRUE|监听value变化，vue2.0不支持value.async的写法，代替方案|
+| Property      | Type          | Default | Required | Description |
+| ------------- |:-------------:| -------:|---------:|------------:|
+| value|String||TRUE|数值|
+| format|String|mm/dd/yyyy||时间格式|
+| disabled-days-of-week|Array|[]| |单周禁选|
+| width|String|160px||组件宽度|
+| clear-button|Boolean|false| |是否有清除按钮|
+| lang|String|navigator.language| |语言，默认中文|
+| placeholder|String|''| |提示|
+| btn-text|String|ok| |按钮文本|
+| btn-class|String|''| |按钮样式|
+| btn-style|Object|''| |按钮样式 {'color':'red'}|
+
+| Methods|Args|Required|Description|
+| ------ |:--:|-------:|----------:|
+| on-data-change|val|TRUE|监听value变化，vue2.0不支持value.async的写法，代替方案|
