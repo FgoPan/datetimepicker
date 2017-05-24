@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-        <div class="datepicker-popup" v-show="displayTimeView">
+        <div class="datepicker-popup" v-show="displayTimeView" v-if="hasTime">
             <div class="datepicker-inner">
                 <div class="datepicker-body">
                     <div class="datepicker-ctrl">
@@ -135,7 +135,11 @@ export default {
         btnStyle: {
             type: Object,
             default: null
-        }
+        },
+        hasTime:{
+            type:Boolean,
+            default: false
+        },
     },
     mounted() {
         this._blur = (e) => {
@@ -239,7 +243,7 @@ export default {
             this.currDate = new Date(year, this.currDate.getMonth(), this.currDate.getDate())
         },
         daySelect(date, klass) {
-            if (klass === 'datepicker-item-gray') {
+            if (klass === 'datepicker-item-gray'||klass ==='datepicker-item-disable') {
                 return false
             } else {
                 this.currDate = date
@@ -359,11 +363,10 @@ export default {
                     })
                 }
             }
-
             for (let i = 1; i <= dayCount; i++) {
                 const date = new Date(time.year, time.month, i)
                 const week = date.getDay()
-                let sclass = ''
+                let sclass = '';
                 this.disabledDaysOfWeek.forEach((el) => {
                     if (week === parseInt(el, 10)) sclass = 'datepicker-item-disable'
                 })
@@ -377,6 +380,8 @@ export default {
                         }
                     }
                 }
+                //开始时间 和结束时间 大小限制
+
                 this.dateRange.push({
                     text: i,
                     date: date,
