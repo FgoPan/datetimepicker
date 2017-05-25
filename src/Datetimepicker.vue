@@ -100,6 +100,14 @@ export default {
         value: {
             type: String
         },
+        end: {
+            type: String,
+            default:""
+        },
+        start: {
+            type: String,
+            default:""
+        },
         format: {
             default: 'mm/dd/yyyy'
         },
@@ -180,7 +188,7 @@ export default {
     computed: {
         text() {
             return translations(this.lang)
-        }
+        },
     },
     methods: {
         close() {
@@ -337,7 +345,7 @@ export default {
                 month: this.currDate.getMonth(),
                 day: this.currDate.getDate()
             }
-            const yearStr = time.year.toString()
+            const yearStr = time.year.toString();
             const firstYearOfDecade = (yearStr.substring(0, yearStr.length - 1) + 0) - 1
             for (let i = 0; i < 12; i++) {
                 this.decadeRange.push({
@@ -345,17 +353,17 @@ export default {
                 })
             }
 
-            const currMonthFirstDay = new Date(time.year, time.month, 1)
-            let firstDayWeek = currMonthFirstDay.getDay() + 1
+            const currMonthFirstDay = new Date(time.year, time.month, 1);
+            let firstDayWeek = currMonthFirstDay.getDay() + 1;//第一个星期的第一天是从星期几开始的
             if (firstDayWeek === 0) {
                 firstDayWeek = 7
             }
             const dayCount = this.getDayCount(time.year, time.month)
-            if (firstDayWeek > 1) {
+            if (firstDayWeek > 1) { //渲染属于上个月的几天
                 const preMonth = this.getYearMonth(time.year, time.month - 1)
                 const prevMonthDayCount = this.getDayCount(preMonth.year, preMonth.month)
                 for (let i = 1; i < firstDayWeek; i++) {
-                    const dayText = prevMonthDayCount - firstDayWeek + i + 1
+                    const dayText = prevMonthDayCount - firstDayWeek + i + 1;
                     this.dateRange.push({
                         text: dayText,
                         date: new Date(preMonth.year, preMonth.month, dayText),
@@ -367,7 +375,40 @@ export default {
                 const date = new Date(time.year, time.month, i)
                 const week = date.getDay()
                 let sclass = '';
-                this.disabledDaysOfWeek.forEach((el) => {
+
+                //开始时间 和结束时间 大小限制
+                if(this.end!=="") {
+                  let valueEnd = this.parse(this.end);
+                  if(valueEnd.getFullYear()<time.year){ //小于结束时间年，不可选
+                    sclass = 'datepicker-item-disable';
+                  }else if(valueEnd.getFullYear()==time.year){
+                    if(valueEnd.getMonth()<time.month){
+                      sclass = 'datepicker-item-disable'
+                    }else if(valueEnd.getMonth()==time.month){
+                      if(valueEnd.getDate()<date.getDate()){
+                        sclass = 'datepicker-item-disable'
+                      }
+                    }
+                  }
+
+                }
+                if(this.start!=="") {
+                  let valueStart = this.parse(this.start);
+                  if(valueStart.getFullYear()>time.year){ //小于结束时间年，不可选
+                    sclass = 'datepicker-item-disable';
+                  }else if(valueStart.getFullYear()==time.year){
+                    if(valueStart.getMonth()>time.month){
+                      sclass = 'datepicker-item-disable'
+                    }else if(valueStart.getMonth()==time.month){
+                      if(valueStart.getDate()>date.getDate()){
+                        sclass = 'datepicker-item-disable'
+                      }
+                    }
+                  }
+
+                }
+
+                this.disabledDaysOfWeek.forEach((el) => {//每个星期中不可选的日期 ，如周末[0,6]
                     if (week === parseInt(el, 10)) sclass = 'datepicker-item-disable'
                 })
                 if (i === time.day) {
@@ -380,7 +421,7 @@ export default {
                         }
                     }
                 }
-                //开始时间 和结束时间 大小限制
+
 
                 this.dateRange.push({
                     text: i,
@@ -389,6 +430,7 @@ export default {
                 })
             }
 
+            //渲染下一个月的第一个星期
             if (this.dateRange.length < 42) {
                 const nextMonthNeed = 42 - this.dateRange.length
                 const nextMonth = this.getYearMonth(time.year, time.month + 1)

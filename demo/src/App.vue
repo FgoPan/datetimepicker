@@ -3,6 +3,7 @@
       <label>开始：</label>
       <v-datetimepicker
         :value="start_at"
+        :end="end_at"
         :disabled-days-of-week="disabledweek"
         :format="format"
         :clear-button="clear"
@@ -12,6 +13,7 @@
 
       <label>结束：</label>
       <v-datetimepicker
+        :start="start_at"
         :value="end_at"
         :disabled-days-of-week="disabledweek"
         :format="format"
@@ -39,7 +41,7 @@ export default {
       format:'yyyy/mm/dd',
       placeholder_end:'结束时间',
       placeholder_start:'开始时间',
-      disabledweek:[0]
+      disabledweek:[0,6]
     }
   },
   methods:{
