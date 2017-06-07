@@ -18,8 +18,11 @@ https://fgopan.github.io/datetimepicker/
 | Property      | Type          | Default | Required | Description |
 | ------------- |:-------------:| -------:|---------:|------------:|
 | value|String||TRUE|数值|
+| hasTime|Boolean|false|时分|
 | format|String|mm/dd/yyyy||时间格式|
-| disabled-days-of-week|Array|[]| |单周禁选|
+| disabled-days-of-week|Array|[]| |星期几禁选,数值有效范围0~6|
+| start|String|''||开始时间限制|
+| end|String|''||结束时间限制|
 | width|String|160px||组件宽度|
 | clear-button|Boolean|false| |是否有清除按钮|
 | lang|String|navigator.language| |语言，默认中文|
